@@ -1,8 +1,13 @@
-// This is the root layout component for your Next.js app.
-// Learn more: https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required
 import { Manrope } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import './globals.css';
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs';
 
 const fontHeading = Manrope({
   subsets: ['latin'],
@@ -17,15 +22,18 @@ const fontBody = Manrope({
 });
 
 import React from 'react';
+import { ThemeProvider } from '@/context/ThemeProvider';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
-      <body
-        className={cn('antialiased', fontHeading.variable, fontBody.variable)}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang='en'>
+        <body
+          className={cn('antialiased', fontHeading.variable, fontBody.variable)}
+        >
+          <ThemeProvider>{children}</ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

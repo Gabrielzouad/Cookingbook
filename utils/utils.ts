@@ -29,4 +29,4 @@ const adjustRecipe = (recipe: Recipe, desiredServings: number): Recipe => {
     };
 };
 
-export { adjustRecipe, Ingredient, Recipe };
+export { adjustRecipe, type Recipe };

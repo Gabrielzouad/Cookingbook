@@ -1,7 +1,7 @@
 'use client';
 import RecipeComponent from '@/components/RecipeComponent';
+import { Recipe } from '@/utils/utils';
 import React, { useEffect, useState } from 'react';
-import { Recipe } from '../utils/utils';
 
 const App: React.FC = () => {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
